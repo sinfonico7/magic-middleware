@@ -8,8 +8,7 @@ class MagicCardClient(CardClienteport):
 
 
     def getAllCards(self):
-        card = Card.all()
-        
-        json_objeto = json.dumps(card.__dict__)
+        cards = Card.all()
+        json_objeto = json.dumps(cards.__dict__)
         return json_objeto
         
