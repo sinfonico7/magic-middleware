@@ -11,29 +11,12 @@ class NativeMapperClient():
             newCard = None
             foreign_names = card.get('foreignNames')           
             if foreign_names is None:
-                    newCard = MagicCard(card['id'], 'sin url')
+                    newCard = MagicCard( { 'language':'', 'imageUrl':'sin url'},card['id'])
+                    deck.addCardToDeck(newCard)
             else:
                 for language_json in card['foreignNames']:
-                    newCard = MagicCard(card['id'], language_json['imageUrl'])     
+                    newCard = MagicCard(language_json, card['id'])  
+                    deck.addCardToDeck(newCard)   
             pass    
-            deck.addCardToDeck(newCard)
+            
         return deck
-    '''
-    def filterCardsByLanguage(self,language:str, cards: list) -> Deck:
-        deck = Deck()
-        atributos = cards
-        for card in atributos:
-            try:
-                if card['foreignNames'] is None:
-                    newCard = MagicCard('sin arrglo id --> ', card['id'])
-                    deck.addCardToDeck(newCard)
-                    pass     
-                for language_json in card['foreignNames']:
-                    if language_json['language'] == language:
-                        newCard = MagicCard(language_json['imageUrl'])
-                        deck.addCardToDeck(newCard)
-                    pass
-            except KeyError:
-                print("Error: La clave 'foreignNames' no está presente en el JSON.")
-        return deck
-    '''

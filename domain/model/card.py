@@ -2,9 +2,10 @@ import json
 
 class MagicCard:
 
-   def __init__(self, id : str,imageUrl : str) -> None:
+   def __init__(self, card : any , id : str) -> None:
       self.id = id
-      self.image = imageUrl
+      self.image = card.get('imageUrl')
+      self.languaje = card.get('language')
       pass
    
    def __str__(self):
