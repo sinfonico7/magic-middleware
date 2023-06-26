@@ -1,11 +1,10 @@
 import json
 from mtgsdk import Card
-
 from infraestructure.web.ports.client_port import CardClienteport
 
 
-class MagicCardClient(CardClienteport):
 
+class MagicCardClient(CardClienteport):
 
     def getAllCards(self):
         cards = Card.all()

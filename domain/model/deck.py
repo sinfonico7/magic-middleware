@@ -12,6 +12,6 @@ class Deck:
     pass
 
     def __str__(self):
-        card_list = [{"image": card.image} for card in self.deck]
+        card_list = [{"id": card.id ,"image": card.image } for card in self.deck]
         deck_dict = {"deck": card_list}
         return json.dumps(deck_dict)
